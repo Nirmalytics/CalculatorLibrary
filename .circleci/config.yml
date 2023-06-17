@@ -9,7 +9,12 @@ jobs:
 
     steps:
       # Step 1: obtain repo from GitHub
-      - checkout
+      - checkout:
+        post:
+        *****
+        - pip install -r requirements.txt
+        - pip install flake8 pytest pytest-cov
+
       # Step 2: create virtual env and install dependencies
       - run:
           name: install dependencies
